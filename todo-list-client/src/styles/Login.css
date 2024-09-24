@@ -1,0 +1,109 @@
+/* Login.css */
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #70e1f5 0%, #ffd194 100%);
+    padding: 20px;
+}
+
+.login-container {
+    max-width: 400px;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login-container input:focus {
+    border-color: #70a1ff;
+    outline: none;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px 0;
+    background-color: #70a1ff;
+    color: #ffffff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: #1e90ff;
+}
+
+.login-container .checkbox-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.login-container .checkbox-container label {
+    font-size: 14px;
+    color: #555;
+}
+
+.login-container .checkbox-container a {
+    font-size: 14px;
+    color: #70a1ff;
+    text-decoration: none;
+}
+
+.login-container .checkbox-container a:hover {
+    text-decoration: underline;
+}
+
+.alert {
+    background-color: #ffe6e6;
+    border: 1px solid #ff4d4d;
+    color: #ff1a1a;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.alert ul {
+    padding-left: 20px;
+}
+
+.register-link {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.register-link a {
+    color: #70a1ff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
