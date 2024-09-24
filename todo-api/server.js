@@ -31,5 +31,5 @@ app.use('/api/auth', require('./routes/routesUser'));
 app.use('/api/todos', require('./routes/routesTodo'));
 
 // Démarrer le serveur
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5002;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
