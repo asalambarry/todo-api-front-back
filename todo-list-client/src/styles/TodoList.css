@@ -1,58 +1,80 @@
-/* TodoList.css
-/* Styles globaux pour la page des tâches */
+/* TodoList.css */
 
 .todo-list-container {
-    max-width: 600px;
-    margin: 40px auto;
+    max-width: 800px;
+    margin: 50px auto;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
-    color: #333;
+    overflow: hidden;
 }
 
-.todo-list-container h1 {
-    text-align: center;
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #444;
-    font-weight: 700;
-}
-
-.todo-input-container {
+.todo-header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.todo-input-container input {
-    flex: 1;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-right: 10px;
+.todo-header h1 {
+    font-size: 24px;
+    color: #333;
 }
 
-.todo-input-container input:focus {
-    border-color: #70a1ff;
-    outline: none;
-}
-
-.todo-input-container button {
-    padding: 10px 15px;
-    font-size: 16px;
-    background-color: #70a1ff;
-    color: #ffffff;
+.logout-button {
+    padding: 10px 20px;
+    background-color: #ff4d4f;
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 14px;
     transition: background-color 0.3s ease;
 }
 
-.todo-input-container button:hover {
-    background-color: #1e90ff;
+.logout-button:hover {
+    background-color: #d9363e;
+}
+
+.todo-input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.todo-input-container input,
+.todo-input-container select,
+.filters-container input,
+.filters-container select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 200px;
+    font-size: 14px;
+}
+
+.todo-input-container .add-button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.todo-input-container .add-button:hover {
+    background-color: #388e3c;
+}
+
+.filters-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
 }
 
 .todo-list {
@@ -61,102 +83,109 @@
     margin: 0;
 }
 
-.todo-list li {
+.todo-item {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     padding: 10px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.3s ease;
+}
+
+.todo-item:hover {
     background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    transition: background-color 0.3s ease;
 }
 
-.todo-list li:hover {
-    background-color: #f1f1f1;
+.todo-item.low {
+    border-left: 5px solid #00c853;
 }
 
-.todo-list li input[type="text"] {
-    flex: 1;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+.todo-item.medium {
+    border-left: 5px solid #ffb300;
+}
+
+.todo-item.high {
+    border-left: 5px solid #e53935;
+}
+
+.todo-title {
+    flex-grow: 1;
+    padding-right: 10px;
+}
+
+.priority-badge {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 12px;
+    color: #fff;
     margin-right: 10px;
-    font-size: 16px;
+    text-transform: capitalize;
 }
 
-.todo-list li button {
-    padding: 8px 12px;
+.priority-badge.low {
+    background-color: #00c853;
+}
+
+.priority-badge.medium {
+    background-color: #ffb300;
+}
+
+.priority-badge.high {
+    background-color: #e53935;
+}
+
+.due-date {
     font-size: 14px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    color: #888;
+    margin-right: 10px;
 }
 
-.todo-list li .update-button {
-    background-color: #28a745;
-    color: #ffffff;
-}
-
-.todo-list li .update-button:hover {
-    background-color: #218838;
-}
-
-.todo-list li .cancel-button {
-    background-color: #6c757d;
-    color: #ffffff;
-    margin-left: 5px;
-}
-
-.todo-list li .cancel-button:hover {
-    background-color: #5a6268;
-}
-
-.todo-list li .edit-button {
-    background-color: #ffc107;
-    color: #ffffff;
-    margin-right: 5px;
-}
-
-.todo-list li .edit-button:hover {
-    background-color: #e0a800;
-}
-
-.todo-list li .delete-button {
-    background-color: #dc3545;
-    color: #ffffff;
-}
-
-.todo-list li .delete-button:hover {
-    background-color: #c82333;
-}
-
-
-/* Styles pour le bouton de déconnexion */
-
-.header {
+.actions {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+    gap: 10px;
 }
 
-.logout-button {
-    padding: 10px 15px;
-    background-color: #f44336;
-    /* Couleur rouge */
-    color: #ffffff;
+.actions button {
+    padding: 5px 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 12px;
     transition: background-color 0.3s ease;
 }
 
-.logout-button:hover {
+.edit-button {
+    background-color: #70a1ff;
+    color: #fff;
+}
+
+.edit-button:hover {
+    background-color: #1e90ff;
+}
+
+.delete-button {
+    background-color: #e53935;
+    color: #fff;
+}
+
+.delete-button:hover {
     background-color: #d32f2f;
-    /* Couleur rouge plus foncée */
+}
+
+.update-button {
+    background-color: #00c853;
+    color: #fff;
+}
+
+.update-button:hover {
+    background-color: #00a344;
+}
+
+.cancel-button {
+    background-color: #ffb300;
+    color: #fff;
+}
+
+.cancel-button:hover {
+    background-color: #ff8f00;
 }
