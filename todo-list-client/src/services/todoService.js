@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5001/api/todos';
+const API_URL = 'http://localhost:5002/api/todos';
 
 export const getTodos = async (token) => {
     return axios.get(API_URL, {
@@ -9,14 +9,13 @@ export const getTodos = async (token) => {
         },
     });
 };
-
-export const addTodo = async (title, token) => {
+export const addTodo = async (title, priority, dueDate, token) => {
     return axios.post(
         API_URL,
-        { title },
+        { title, priority, dueDate },
         {
             headers: {
-                Authorization: `Bearer ${token}`, // Assurez-vous que le token est correct
+                Authorization: `Bearer ${token}`,
             },
         }
     );
